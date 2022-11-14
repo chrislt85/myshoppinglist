@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
     modalContainer:{
         justifyContent: 'center',
         alignItems:'center',
-          marginTop: 50,
+        marginTop: 50,
         paddingVertical: 20,
       },
       modalTitle: {

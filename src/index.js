@@ -23,15 +23,6 @@ export default function App() {
   }
   
   const onHandleCheckStatus = (item) => {
-  //const onHandleCheckStatus = (item) => {
-      // busco el item en la lista de items
-      //item.done = !item.done;
-    //};
-    //setTaskList((prevTaskList) => prevTaskList.filter((item) => item.id !== selectedTask.id))
-
-    
-    //a = a.map(function(item) { return item == 3452 ? 1010 : item; });
-
     setTaskList((prevTaskList) => prevTaskList.map((currItem) => ({ id: currItem.id, value: currItem.value, done: ((currItem.id === item.id) ? !currItem.done : currItem.done) })));
   }
 

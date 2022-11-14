@@ -14,12 +14,12 @@ const ModalDeleteItem = ({modalVisible, selectedTask, onHandleDeleteItem, onHand
             <View style={styles.modalButtonContainer}>
               <Button 
                 title='Delete'
-                color='#9A848F'
+                color='#5E4B56'
                 onPress={onHandleDeleteItem}
               />
               <Button 
                 title='Cancel'
-                color='#9A848F'
+                color='#968E85'
                 onPress={onHandleCancel}
               />
             </View>  

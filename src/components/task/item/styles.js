@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     listItemContainer:{
-        paddingVertical: 20,
-        backgroundColor: '#9A848F',
+        paddingVertical: 12,
+        backgroundColor: '#968E85',
         borderRadius: 5,
         shadowColor: "#000",
         shadowOffset:{
@@ -13,15 +13,13 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        /*justifyContent: 'center',*/
-        marginVertical: 5,
-
+        marginVertical:5,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     listItemContainerDone:{
-        paddingVertical: 20,
-        backgroundColor: 'gray',
+        paddingVertical: 12,
+        backgroundColor: '#435058',
         borderRadius: 5,
         shadowColor: "#000",
         shadowOffset:{
@@ -31,9 +29,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        /*justifyContent: 'center',*/
         marginVertical: 5,
-
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
@@ -43,9 +39,6 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 10,
         width: '90%',
         textAlignVertical: 'center',
-        
-        /*borderColor: 'red',
-        borderWidth: 1,*/
     },
     listItemDone:{
         fontSize: 14,
@@ -56,12 +49,10 @@ export const styles = StyleSheet.create({
         textDecorationLine: 'line-through'
     },
     checkBox:{
-        /*borderColor: 'blue',
-        borderWidth: 1,*/
+        paddingHorizontal: 10,
     },
     checkBoxStatus:{
         fontSize: 30,
         color: '#ffffff',
-        paddingHorizontal: 10,
     }
 })
