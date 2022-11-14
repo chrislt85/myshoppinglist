@@ -12,7 +12,7 @@ export default function App() {
   const onHandleTask = () => {
     if (task.trim().length > 0)
     {
-      setTaskList((prevTaskList) => [...prevTaskList, { id: Math.random().toString(), value: task }]);
+      setTaskList((prevTaskList) => [...prevTaskList, { id: Math.random().toString(), value: task, done: false }]);
       setTask('');
     }
   }
@@ -21,9 +21,22 @@ export default function App() {
     setSelectedTask(item);
     setModalVisible(!modalVisible);
   }
+  
+  const onHandleCheckStatus = (item) => {
+  //const onHandleCheckStatus = (item) => {
+      // busco el item en la lista de items
+      //item.done = !item.done;
+    //};
+    //setTaskList((prevTaskList) => prevTaskList.filter((item) => item.id !== selectedTask.id))
+
+    
+    //a = a.map(function(item) { return item == 3452 ? 1010 : item; });
+
+    setTaskList((prevTaskList) => prevTaskList.map((currItem) => ({ id: currItem.id, value: currItem.value, done: ((currItem.id === item.id) ? !currItem.done : currItem.done) })));
+  }
 
   const renderItem = ({item}) => (
-      <TaskItem item={item} onHandleSelected={onHandleSelected} />
+      <TaskItem item={item} onHandleSelected={onHandleSelected} onHandleCheckStatus={onHandleCheckStatus} />
   )
   
   const onHandleDeleteItem = () => {
