@@ -13,12 +13,29 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        justifyContent: 'center',
-        marginVertical: 5
+        /*justifyContent: 'center',*/
+        marginVertical: 5,
+
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     listItem:{
         fontSize: 14,
         color: '#ffffff',
         paddingHorizontal: 10,
+        width: '90%',
+        textAlignVertical: 'center',
+        
+        /*borderColor: 'red',
+        borderWidth: 1,*/
     },
+    checkBox:{
+        /*borderColor: 'blue',
+        borderWidth: 1,*/
+    },
+    checkBoxStatus:{
+        fontSize: 30,
+        color: '#ffffff',
+        paddingHorizontal: 10,
+    }
 })
