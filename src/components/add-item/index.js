@@ -11,7 +11,7 @@ const AddItem = ({ task, onHandleTask, onHandleChange }) => {
             placeholder="Enter new item"
             onChangeText={onHandleChange}
             />
-            <Button disabled={!task} title='Add' color='#968E85' onPress={onHandleTask} />
+            <Button disabled={!task} title='Add' color='#435058' onPress={onHandleTask} />
         </View>
     )
 }
