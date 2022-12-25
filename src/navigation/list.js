@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { Tasks } from '../screens';
+import { Tasks, EditTask } from '../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -9,14 +9,8 @@ const TasksNavigator = () => {
     <Stack.Navigator
       initialRouteName="Tasks"
       screenOptions={{
-        headerStyle: {
-          //backgroundColor: '',
-        },
-        //headerTintColor: COLORS.text,
-        headerTitleStyle: {
-          //fontFamily: 'Lato-Bold',
-        },
         presentation: 'card',
+        headerTitleAlign: 'center',
         headerBackTitle: '',
       }}>
       <Stack.Screen
@@ -24,6 +18,13 @@ const TasksNavigator = () => {
         component={Tasks}
         options={{
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="EditTask"
+        component={EditTask}
+        options={{
+          title: 'Edit Item'
         }}
       />
     </Stack.Navigator>

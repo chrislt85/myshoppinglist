@@ -37,14 +37,14 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         color: '#ffffff',
         paddingHorizontal: 10,
-        width: '90%',
+        width: '75%',
         textAlignVertical: 'center',
     },
     listItemDone:{
         fontSize: 14,
         color: '#ffffff',
         paddingHorizontal: 10,
-        width: '90%',
+        width: '75%',
         textAlignVertical: 'center',
         textDecorationLine: 'line-through'
     },
@@ -54,5 +54,10 @@ export const styles = StyleSheet.create({
     checkBoxStatus:{
         fontSize: 30,
         color: '#ffffff',
+    },
+    deleteItem: {
+        paddingRight: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })

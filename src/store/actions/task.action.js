@@ -1,9 +1,14 @@
 import { taskTypes } from "../types";
 
-const { ADD_TASK, DELETE_TASK, SELECT_TASK, CHECK_STATUS } = taskTypes;
+const { ADD_TASK, EDIT_TASK, DELETE_TASK, SELECT_TASK, CHECK_STATUS } = taskTypes;
 
 export const addTask = (item) => ({
     type: ADD_TASK,
+    task: item,
+});
+
+export const editTask = (item) => ({
+    type: EDIT_TASK,
     task: item,
 });
 

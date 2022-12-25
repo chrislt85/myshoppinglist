@@ -1,6 +1,6 @@
 import { taskTypes } from "../types";
 
-const { ADD_TASK, DELETE_TASK, SELECT_TASK, CHECK_STATUS } = taskTypes;
+const { ADD_TASK, EDIT_TASK, DELETE_TASK, SELECT_TASK, CHECK_STATUS } = taskTypes;
 
 const initialState = {
     taskList: [],
@@ -11,8 +11,15 @@ const tasksReducer = (state = initialState, action) => {
     switch (action.type){
         case ADD_TASK:
             return {
-              ...state,
-              taskList: [...state.taskList, action.task],
+                ...state,
+                taskList: [...state.taskList, action.task],
+            };
+        
+        case EDIT_TASK:
+            return {
+                ...state,
+                taskList: state.taskList.map((currItem) => ({ id: currItem.id, value: ((currItem.id === action.task.id) ? action.task.value : currItem.value), done: currItem.done })),
+                selectedTask: null,
             };
 
         case DELETE_TASK:
