@@ -17,7 +17,7 @@ const Tasks = ({ navigation, route }) => {
     const onHandleTask = () => {
       if (task.trim().length > 0)
       {
-        dispatch(addTask({ id: Math.random().toString(), value: task, done: false }));
+        dispatch(addTask({ id: Math.random().toString(), value: task, done: false, imageurl: null }));
         setTask('');
       }
     }

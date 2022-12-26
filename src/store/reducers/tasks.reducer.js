@@ -18,7 +18,7 @@ const tasksReducer = (state = initialState, action) => {
         case EDIT_TASK:
             return {
                 ...state,
-                taskList: state.taskList.map((currItem) => ({ id: currItem.id, value: ((currItem.id === action.task.id) ? action.task.value : currItem.value), done: currItem.done })),
+                taskList: state.taskList.map((currItem) => ({ id: currItem.id, value: ((currItem.id === action.task.id) ? action.task.value : currItem.value), done: currItem.done, imageurl: ((currItem.id === action.task.id) ? action.task.imageurl : currItem.imageurl) })),
                 selectedTask: null,
             };
 
@@ -41,7 +41,7 @@ const tasksReducer = (state = initialState, action) => {
         case CHECK_STATUS:
             return {
                 ...state,
-                taskList: state.taskList.map((currItem) => ({ id: currItem.id, value: currItem.value, done: ((currItem.id === action.taskId) ? !currItem.done : currItem.done) }))
+                taskList: state.taskList.map((currItem) => ({ id: currItem.id, value: currItem.value, done: ((currItem.id === action.taskId) ? !currItem.done : currItem.done), imageurl: currItem.imageurl }))
             };
 
         default:

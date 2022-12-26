@@ -37,14 +37,14 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         color: '#ffffff',
         paddingHorizontal: 10,
-        width: '75%',
+        width: '65%',
         textAlignVertical: 'center',
     },
     listItemDone:{
         fontSize: 14,
         color: '#ffffff',
         paddingHorizontal: 10,
-        width: '75%',
+        width: '65%',
         textAlignVertical: 'center',
         textDecorationLine: 'line-through'
     },
@@ -57,6 +57,17 @@ export const styles = StyleSheet.create({
     },
     deleteItem: {
         paddingRight: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }, 
+    listItemImage: {
+        width: 40,
+        height: 40,
+        borderRadius: 8,
+    },
+    emptyListItemImage: {
+        width: 40,
+        height: 40,
         justifyContent: 'center',
         alignItems: 'center',
     }
