@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import * as ImagePicker from "expo-image-picker";
 import { View, Image, Text, Alert, Button } from 'react-native';
 import { styles } from './styles';
 
-const ImageSelector = ({ imageTask, onImageSelection/*, defaultImageTask*/ }) => {
-    //const [selectedImage, setSelectedImage] = useState(null);
-
-    //rconsole.warn('image', imageTask);
-    /*useEffect(() => {
-        if (imageTask)
-        {
-            setSelectedImage(imageTask);
-            console.warn('imageTask', imageTask);
-        }
-        //onImageSelection(imageTask);
-    //    setSelectedImage(defaultImageTask);
-        //console.warn('selectedImage', selectedImage);
-    }, []);*/
+const ImageSelector = ({ imageTask, onImageSelection }) => {
 
     const onHandleTakePicture = async () => {
         const hasCameraPermissions = await verifyPermissions();
@@ -28,14 +15,17 @@ const ImageSelector = ({ imageTask, onImageSelection/*, defaultImageTask*/ }) =>
             quality: 0.7,
         });
 
-        //setSelectedImage(image.uri);
         onImageSelection(image.uri);// esto es para que la vista "se entere" de la URL de la imagen seleccionada
+    };
+
+    const onHandleDeletePicture = () => {
+        onImageSelection(null);
     };
 
     const verifyPermissions = async () => {
         const { status } = await ImagePicker.requestCameraPermissionsAsync();
         if (status !== "granted"){
-            Alert.alert("Permisos insuficientes", "Necesitas dar permisos para usar la cámara", [{ text: "Ok" }]);
+            Alert.alert("Insufficient permissions", "You need to give permissions to use the camera", [{ text: "Ok" }]);
 
             return false;
         }
@@ -45,25 +35,27 @@ const ImageSelector = ({ imageTask, onImageSelection/*, defaultImageTask*/ }) =>
 
     return (
         <View style={styles.container}>
-            {/*<View style={styles.preview}>
-                {!selectedImage ? (
-                    <Text style={styles.title}>No hay una imagen seleccionada</Text>
-                ) : (
-                    <Image style={styles.image} source={{ uri: selectedImage }} />
-                )}
-            </View>*/}
             <View style={styles.preview}>
                 {!imageTask ? (
-                    <Text style={styles.title}>No hay una imagen seleccionada</Text>
+                    <Text style={styles.title}>No image selected</Text>
                 ) : (
                     <Image style={styles.image} source={{ uri: imageTask }} />
                 )}
             </View>
-            <Button
-                title="Tomar foto"
-                color="#808080"
-                onPress={onHandleTakePicture}
-             />
+            <View style={styles.buttons}>
+                <Button
+                    title="Take picture"
+                    color="#808080"
+                    onPress={onHandleTakePicture}
+                />
+                <Button
+                    disabled={!imageTask}
+                    title="Clear picture"
+                    color="#808080"
+                    onPress={onHandleDeletePicture}
+                />
+            </View>
+            
         </View>
     );
 }

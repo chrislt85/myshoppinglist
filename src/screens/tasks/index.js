@@ -24,7 +24,6 @@ const Tasks = ({ navigation, route }) => {
   
     const onHandleSelected = (item) => {
       dispatch(selectTask(item.id));// selecciono el item a editar
-      //setModalVisible(!modalVisible);
       navigation.navigate('EditTask');
     }
 
