@@ -1,8 +1,13 @@
-import { createStore, combineReducers } from 'redux';
-import { tasksReducer } from './reducers';
+import { configureStore } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({
-    tasks: tasksReducer,
+import taskReducer from "./item.slice";
+
+export const store = configureStore({
+  reducer: {
+    tasks: taskReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
-
-export default createStore(rootReducer);

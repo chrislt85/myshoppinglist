@@ -1,9 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Text, View } from 'react-native';
 import { AddItem, TaskList, TaskItem, ModalDeleteItem } from '../../components';
-import { selectTask, addTask, deleteTask, checkStatus } from '../../store/actions';
+import { selectTask, saveTask, dropTask, loadTask, checkTask } from "../../store/item.slice";
 import { styles } from './styles';
 
 const Tasks = ({ navigation, route }) => {
@@ -14,10 +13,14 @@ const Tasks = ({ navigation, route }) => {
     const [task, setTask] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
   
+    useEffect(() => {
+      dispatch(loadTask());
+    }, []);
+
     const onHandleTask = () => {
       if (task.trim().length > 0)
       {
-        dispatch(addTask({ id: Math.random().toString(), value: task, done: false, imageurl: null }));
+        dispatch(saveTask({ value: task, done: false, imageurl: null }));
         setTask('');
       }
     }
@@ -33,7 +36,7 @@ const Tasks = ({ navigation, route }) => {
     }
     
     const onHandleCheckStatus = (item) => {
-      dispatch(checkStatus(item.id));
+      dispatch(checkTask(item.id));
     }
   
     const renderItem = ({item}) => (
@@ -41,7 +44,7 @@ const Tasks = ({ navigation, route }) => {
     )
     
     const onHandleDeleteItem = () => {
-      dispatch(deleteTask(selectedTask.id));
+      dispatch(dropTask(selectedTask.id));
       setModalVisible(!modalVisible);
     }
     

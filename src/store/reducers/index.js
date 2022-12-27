@@ -1,1 +1,0 @@
-export { default as tasksReducer } from './tasks.reducer';

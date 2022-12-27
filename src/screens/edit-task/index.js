@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { View } from 'react-native';
 import { EditItem, ImageSelector } from '../../components';
-import { editTask } from '../../store/actions';
+import { changeTask } from '../../store/item.slice';
 import { styles } from './styles';
 
 const EditTask = ({ navigation, route }) => {
@@ -20,7 +20,7 @@ const EditTask = ({ navigation, route }) => {
     const onHandleEditTask = () => {
       if (task.trim().length > 0)
       {
-        dispatch(editTask({ id: selectedTask.id, value: task, done: selectedTask.done, imageurl: imageTask }));
+        dispatch(changeTask({ id: selectedTask.id, value: task, imageurl: imageTask }));
         navigation.navigate('Tasks');
       }
     }
